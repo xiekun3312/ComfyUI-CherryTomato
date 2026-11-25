@@ -5,7 +5,7 @@
 ## 安装和使用 ComfyUI 节点
 
 1. 打开正在使用的 ComfyUI 安装目录，进入 `ComfyUI/custom_nodes`。如果在画布上已经能搜到「小番茄图片加密 / 解密」，可以直接跳到第 3 步。
-2. 在 `custom_nodes` 目录打开终端，执行下面的命令。克隆私有仓库时，请使用有访问权限的 GitHub 账号。安装完成后，等当前队列结束，重启 ComfyUI 并刷新浏览器。
+2. 在 `custom_nodes` 目录打开终端，执行下面的命令。仓库公开，可直接克隆。安装完成后，等当前队列结束，重启 ComfyUI 并刷新浏览器。
 
    ```powershell
    git clone https://github.com/xiekun3312/ComfyUI-CherryTomato.git
@@ -18,7 +18,7 @@
 
 ## 使用 Windows EXE
 
-1. 打开 [图像加密解密.exe](desktop/图像加密解密/图像加密解密.exe) 的文件页，点击 **Download raw file** 下载，然后在 64 位 Windows 上双击运行。桌面版可独立运行，无需启动 ComfyUI。
+1. 点击[下载 Windows EXE](https://github.com/xiekun3312/ComfyUI-CherryTomato/releases/latest/download/CherryTomato.exe)，然后在 64 位 Windows 上双击运行。桌面版可独立运行，无需启动 ComfyUI。
 2. 点击 **选择图片…**，选取 PNG、JPG、JPEG 或 BMP。此时窗口只显示文件名。程序直接读取所选文件，无需建立输入临时目录。
 3. 点击 **加密** 或 **解密**。程序会自动保存 PNG，并显示处理结果。调整窗口大小时，预览会等比例缩放。
 4. 点击 **打开输出文件夹**，资源管理器会打开并选中刚生成的文件。**清除** 按钮位于「解密」右侧，只清空预览，当前选图和已保存的文件都会保留。
@@ -36,3 +36,7 @@ F:\知识库\编程开发\图像加密解密\output
 ## 保存后再解密
 
 需要之后还原时，请保存为 **PNG**，并在传输时保留原尺寸和像素。解密依赖像素排列，无需工作流或 EXIF 元数据。EXE 导出的 PNG 只保留重建像素所需的数据。使用 ComfyUI 时，是否写入工作流等附加信息由保存节点决定。
+
+## 使用许可
+
+任何人均可免费下载并运行本仓库的 ComfyUI 节点和 Windows 桌面程序。第三方代码的许可说明见[许可声明](desktop/图像加密解密/ThirdPartyNotices.txt)。
