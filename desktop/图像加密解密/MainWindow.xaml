@@ -1,0 +1,63 @@
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="小番茄 · 图像加密解密" Width="910" Height="680" MinWidth="610" MinHeight="390"
+        FontFamily="Microsoft YaHei UI, Segoe UI" FontSize="14"
+        WindowStartupLocation="CenterScreen" Background="#F7F6F3"
+        Foreground="#272725" UseLayoutRounding="True">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="#272725"/>
+            <Setter Property="BorderBrush" Value="#CCCAC4"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="16,8"/>
+            <Setter Property="MinHeight" Value="38"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value><ControlTemplate TargetType="Button">
+                    <Border x:Name="Box" Background="{TemplateBinding Background}" CornerRadius="6"
+                            Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="Box" Property="Opacity" Value=".83"/></Trigger>
+                        <Trigger Property="IsPressed" Value="True"><Setter TargetName="Box" Property="Opacity" Value=".65"/></Trigger>
+                        <Trigger Property="IsEnabled" Value="False"><Setter TargetName="Box" Property="Opacity" Value=".45"/></Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate></Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid Margin="22">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions><ColumnDefinition Width="Auto"/><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/><ColumnDefinition Width="Auto"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+            <Button Name="Pick" Content="选择图片…"/>
+            <TextBlock Name="FileName" Grid.Column="1" Margin="12,0" VerticalAlignment="Center" Foreground="#54544F"
+                       Text="尚未选择图片" TextTrimming="CharacterEllipsis"/>
+            <Button Name="Encrypt" Grid.Column="2" Content="加密" Background="#A93426" BorderBrush="#A93426" Foreground="White" IsEnabled="False"/>
+            <Button Name="Decrypt" Grid.Column="3" Margin="8,0,0,0" Content="解密" IsEnabled="False"/>
+            <Button Name="Clear" Grid.Column="4" Margin="8,0,0,0" Content="清除" ToolTip="清除输出预览" IsEnabled="False"/>
+        </Grid>
+        <Grid Grid.Row="1" Margin="0,21,0,9">
+            <TextBlock Text="输出预览" FontSize="15" FontWeight="SemiBold"/>
+            <TextBlock Name="SizeLabel" HorizontalAlignment="Right" Foreground="#585852"/>
+        </Grid>
+        <Border Grid.Row="2" Background="#222525" CornerRadius="9" Padding="8">
+            <Grid>
+                <TextBlock Name="Empty" Text="加密或解密后，结果会显示在这里" Foreground="#CACBC7"
+                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Image Name="Preview" Stretch="Uniform" RenderOptions.BitmapScalingMode="HighQuality"/>
+            </Grid>
+        </Border>
+        <Grid Grid.Row="3" Margin="0,12,0,0">
+            <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+            <TextBlock Name="Status" VerticalAlignment="Center" Margin="0,0,12,0" Foreground="#54544F"
+                       Text="输出格式：PNG" TextTrimming="CharacterEllipsis"/>
+            <Button Name="OpenFolder" Grid.Column="1" Content="打开输出文件夹" IsEnabled="False"/>
+        </Grid>
+    </Grid>
+</Window>
